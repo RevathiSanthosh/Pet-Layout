@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetPalozza</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link href="Home.css" rel="stylesheet">
+<link href="Dog.css" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- ===== TOP NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg top-navbar">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">🐾 PetPalozza</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="topMenu">
+
+<!-- Search -->
+<form class="d-flex mx-auto" onsubmit="return false;">
+<input id="searchInput" class="form-control search-box" type="search" placeholder="Search for products">
+</form>
+
+<!-- Right Side Menu -->
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="Home.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="About.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Login.html"><i class="bi bi-person"></i> Log In</a>
+</li>
+
+<li class="nav-item  position-relative">
+<a href="cart.html" class="btn btn-warning">
+Cart 🛒 <span id="cartCount">0</span>
+</a>
+<ul class="dropdown-menu dropdown-menu-end p-3" id="cartItems">
+<li class="text-center text-muted">Cart is empty</li>
+</ul>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== CATEGORY NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg category-navbar">
+<div class="container">
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#categoryMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse justify-content-center" id="categoryMenu">
+<ul class="navbar-nav">
+
+<li class="nav-item">
+<a class="nav-link active" href="Dog.html">Dog</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Cat.html">Cat</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="SmallPets.html">Small pets</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="PetService.html">Pet Service</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Brand</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Breed</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="ConsultVet.html">Consult a Vet</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== PRODUCTS ===== -->
+<div class="container mt-5">
+<div class="row" id="productContainer"></div>
+<div id="noResult" class="text-center text-danger mt-4" style="display:none;">
+No product found
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<div class="container py-3">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+      <li class="breadcrumb-item active"><a href="Dog.html"></a>Dog</li>
+    </ol>
+  </nav>
+  <!-- Hero Section -->
+   <!------------------------------------------------------------------------------------->
+<div class="container-fluid py-3">
+
+  <!-- Top Bar -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <button class="btn btn-outline-secondary btn-sm">Filters</button>
+    <h6 class="mb-0 fw-bold">Dog</h6>
+    <select id="sortSelect" class="form-select form-select-sm w-auto">
+      <option value="">Sort</option>
+      <option value="low">Price Low → High</option>
+      <option value="high">Price High → Low</option>
+    </select>
+  </div>
+
+<div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-3 mb-3">
+        <hr>
+        <h6 class="fw-bold">Filter</h6>
+
+        <label class="small">Max Price: ₹<span id="priceValue">2000</span></label>
+        <input type="range" id="priceFilter" class="form-range" min="0" max="2000" value="2000">
+
+        <label class="small mt-2">Minimum Rating</label>
+        <select id="ratingFilter" class="form-select form-select-sm">
+        <option value="0">All</option>
+        <option value="3">3 ★ & above</option>
+        <option value="4">4 ★ & above</option>
+        <option value="5">5 ★ only</option>
+        </select>
+
+        <button id="clearFilter" class="btn btn-sm btn-outline-secondary mt-2 w-100">
+        Clear Filter
+        </button>
+      <div class="category-card">
+        <img src="1.png" class="img-fluid">
+        <div class="p-2">
+          <strong>Top Deals</strong>
+          <small class="d-block text-muted">Keep your pup calm and stress</small>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="t1.png" class="img-fluid">
+        <div class="p-2">
+          <strong>Toys</strong>
+          <small class="d-block text-muted">All types of toys are available</small>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="11.png" class="img-fluid">
+        <div class="p-2">
+          <strong>Dog & Cat Comb</strong>
+          <small class="d-block text-muted">Grooming brushes</small>
+        </div>
+      </div>
+
+      <div class="category-card">
+        <img src="c2.png" class="img-fluid">
+        <div class="p-2">
+          <strong>Training</strong>
+          <small class="d-block text-muted">Training kits available</small>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product Grid -->
+<div class="col-lg-9">
+<div class="row" id="productGrid">
+        <!-- Product Card -->
+   <div class="col-md-4 col-6 product-item">
+         <div class="product-card" data-price="1899" data-rating="4">
+            <img src="w1.png">
+            <div class="p-2">
+              <div class="product-title">Turkey, Chickpea & Sweet Potato</div>
+
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">₹ 1899</span>
+                <span class="weight">2kg</span>
+              </div>
+
+            <button class="btn btn-primary" onclick="addToCart(
+      'Turkey, Chickpea & Sweet Potato',
+      1899,
+      'w1.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Repeat Cards -->
+  <div class="col-md-4 col-6 product-item">
+         <div class="product-card" data-price="40" data-rating="4">
+            <img src="cu1.png">
+            <div class="p-2">
+              <div class="product-title">Cuddle Adult Dog Food</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 40</span>
+                <span class="weight">200gm</span>
+              </div>
+               <button class="btn btn-primary" onclick="addToCart(
+      'Cuddle Adult Dog Food',
+      40,
+      'cu1.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+<div class="col-md-4 col-6 product-item">
+          <div class="product-card" data-price="39" data-rating="4">
+            <img src="k1.png">
+            <div class="p-2">
+              <div class="product-title">Kennel Kitchen Dry Dog Food</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 39</span>
+                <span class="weight">2kg</span>
+              </div>
+              <button class="btn btn-primary" onclick="addToCart(
+      'Kennel Kitchen Dry Dog Food',
+      39,
+      'k1.png')">
+
+      Add To Cart
+    </button>
+            </div>
+       </div>
+       </div>
+     <!-- Product Grid -->
+
+        <!-- Product Card -->
+       <div class="col-md-4 col-6 product-item">
+          <div class="product-card" data-price="16" data-rating="4">
+            <img src="z1.png">
+            <div class="p-2">
+              <div class="product-title">Drools Dog Spike Hot Ball</div>
+
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">₹ 16</span>
+                <span class="weight">3 inch</span>
+              </div>
+
+             <button class="btn btn-primary" onclick="addToCart(
+      'Drools Dog Spike Hot Ball',
+      16,
+      'z1.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat Cards -->
+       <div class="col-md-4 col-6 product-item">
+          <div class="product-card" data-price="25" data-rating="4">
+            <img src="z2.png">
+            <div class="p-2">
+              <div class="product-title">Drool Poppy Dog Food Chicken</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 25</span>
+                <span class="weight">1.25 kg</span>
+              </div>
+            <button class="btn btn-primary" onclick="addToCart(
+      'Drool Poppy Dog Food Chicken',
+      25,
+      'z2.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-md-4 col-6 product-item">
+         <div class="product-card" data-price="33" data-rating="4">
+            <img src="z3.png">
+            <div class="p-2">
+              <div class="product-title">Pedigiri Adult & Puppy Dry Dog Food</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 33</span>
+                <span class="weight">1kg</span>
+              </div>
+              <button class="btn btn-primary" onclick="addToCart(
+      'Pedigiri Adult & Puppy Dry Dog Food',
+      33,
+      'z3.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+     <!-- Product Grid -->
+
+
+        <!-- Product Card -->
+       <div class="col-md-4 col-6 product-item">
+          <div class="product-card" data-price="13" data-rating="5">
+            <img src="b1.png">
+            <div class="p-2">
+              <div class="product-title">Canine Creek real Chicken</div>
+
+              <div class="rating text-warning">★ ★ ★ ★ ★ </div>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">₹ 13</span>
+                <span class="weight">150g</span>
+              </div>
+
+              <button class="btn btn-primary" onclick="addToCart(
+      'Canine Creek real Chicken',
+      13,
+      'b1.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat Cards -->
+ <div class="col-md-4 col-6 product-item">
+         <div class="product-card" data-price="16" data-rating="4">
+            <img src="b2.png">
+            <div class="p-2">
+              <div class="product-title">Himalayas Digestive Stimulatnt</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 16</span>
+                <span class="weight">100ml</span>
+              </div>
+               <button class="btn btn-primary" onclick="addToCart(
+      'Himalayas Digestive Stimulatnt',
+      16,
+      'b2.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-6 product-item">
+         <div class="product-card" data-price="11" data-rating="4">
+            <img src="b.png">
+            <div class="p-2">
+              <div class="product-title">Pedigiri Pro Adult small Breed</div>
+              <div class="rating text-warning">★ ★ ★ ★ ☆</div>
+              <div class="d-flex justify-content-between">
+                <span class="price">₹ 11</span>
+                <span class="weight">3kg</span>
+              </div>
+            <button class="btn btn-primary" onclick="addToCart(
+      'Pedigiri Pro Adult small Breed',
+      11,
+      'b.png')">
+
+      Add To Cart
+    </button>
+            </div>
+          </div>
+        </div>
+          </div>
+</div>
+<!--------------------------------------------------------------------------------->
+<div class="container-fluid py-2">
+
+  <!-- Pagination Top Right -->
+<div class="text-center mt-4" id="pagination"></div>
+  <!-- Banner -->
+  <div class="diet-banner row align-items-center text-center text-lg-start">
+
+    <!-- Left Dogs -->
+    <div class="col-lg-3 col-md-4 mb-3 mb-md-0 text-center">
+      <img src="x1.png"
+           class="img-fluid banner-dog">
+    </div>
+
+    <!-- Center Text -->
+    <div class="col-lg-6 col-md-4 text-center">
+      <h6 class="fw-bold banner-text">
+        A balanced dog diet should consist of protein, fats,
+        carbohydrates, vitamins, and minerals, along with
+        plenty of fresh water.
+      </h6>
+    </div>
+
+    <!-- Right Dog with Food -->
+    <div class="col-lg-3 col-md-4 text-center">
+      <img src="x2.png"
+           class="img-fluid banner-dog">
+    </div>
+  </div>
+</div>
+<!--------------------------------Footer------------------------------>
+<footer class="footer-section text-white pt-5 pb-4">
+  <div class="container">
+<div class="row">
+
+      <!-- Logo + About -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="fw-bold">PetPalooza</h4>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Categories</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Dog</a></li>
+          <li><a href="#">Cat</a></li>
+          <li><a href="#">Fish</a></li>
+          <li><a href="#">Rats</a></li>
+          <li><a href="#">Rabbits</a></li>
+          <li><a href="#">Hamsters</a></li>
+          <li><a href="#">Guinea pigs</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold">Support</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Refund & returns policy</a></li>
+          <li><a href="#">Shipping policy</a></li>
+          <li><a href="#">Terms & conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + Contact -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Follow</h5>
+        <div class="social-icons mb-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <h6 class="fw-bold">Get in Touch</h6>
+        <p class="small mb-1">Call: +91-1234567890</p>
+        <p class="small">Email: support@petpalooza.com</p>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="col-lg-2 col-md-12 mb-4">
+        <h5 class="fw-bold">For Subscribe,</h5>
+        <form id="subscribeForm">
+          <input type="email" class="form-control mb-2" placeholder="Email" required>
+          <button class="btn btn-light w-100" type="submit">Subscribe Now</button>
+        </form>
+        <div id="msg" class="small mt-2"></div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!------------------------------------------------------------------------------>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+
+/* 🛒 ADD TO CART */
+
+
+/* ❌ REMOVE */
+function removeFromCart(id){
+cart = cart.filter(item => item.id !== id);
+localStorage.setItem("cart", JSON.stringify(cart));
+updateCartUI();
+}
+
+/* 🔄 CART UI */
+function updateCartUI(){
+  cartItems.innerHTML="";
+
+  if(cart.length===0){
+    cartItems.innerHTML=`<li class="text-center text-muted">Cart is empty</li>`;
+    cartCount.innerText=0;
+    return;
+  }
+
+  let totalQty=0;
+
+  cart.forEach(item=>{
+    totalQty+=item.qty;
+
+    cartItems.innerHTML+=`
+    <li class="d-flex justify-content-between align-items-center mb-2">
+      <div>
+        <strong>${item.name}</strong><br>
+        <small>Qty: ${item.qty}</small>
+      </div>
+      <button class="btn btn-sm btn-danger" onclick="removeFromCart('${item.id}')">
+        <i class="bi bi-trash"></i>
+      </button>
+    </li>`;
+  });
+
+  cartCount.innerText=totalQty;
+}
+
+updateCartUI();
+
+/*ADD SEARCH + FILTER + SORT SCRIPT*/
+const searchInput = document.getElementById("searchInput");
+const priceFilter = document.getElementById("priceFilter");
+const priceValue = document.getElementById("priceValue");
+const ratingFilter = document.getElementById("ratingFilter");
+const clearFilter = document.getElementById("clearFilter");
+
+/* 🔍 SEARCH */
+searchInput.addEventListener("input", applyFilters);
+
+/* 💰 PRICE */
+priceFilter.addEventListener("input", ()=>{
+  priceValue.innerText = priceFilter.value;
+  applyFilters();
+});
+
+/* ⭐ RATING */
+ratingFilter.addEventListener("change", applyFilters);
+
+/* 🔄 CLEAR */
+clearFilter.addEventListener("click", ()=>{
+  priceFilter.value=2000;
+  ratingFilter.value=0;
+  searchInput.value="";
+  priceValue.innerText=2000;
+  applyFilters();
+});
+
+/* 🎯 FILTER FUNCTION */
+function applyFilters(){
+
+  const text = searchInput.value.toLowerCase();
+  const maxPrice = parseFloat(priceFilter.value);
+  const minRating = parseFloat(ratingFilter.value);
+
+  const cards = document.querySelectorAll(".product-card");
+  let visible=0;
+
+  cards.forEach(card=>{
+    const name = card.querySelector(".product-title").innerText.toLowerCase();
+    const price = parseFloat(card.dataset.price);
+    const rating = parseFloat(card.dataset.rating);
+
+    const matchSearch = name.includes(text);
+    const matchPrice = price <= maxPrice;
+    const matchRating = rating >= minRating;
+
+    if(matchSearch && matchPrice && matchRating){
+      card.parentElement.style.display="block";
+      visible++;
+    }else{
+      card.parentElement.style.display="none";
+    }
+  });
+
+  document.getElementById("noResult").style.display =
+    visible===0 ? "block" : "none";
+}
+
+/*For sort*/
+
+document.getElementById("sortSelect").addEventListener("change", function () {
+
+  const container = document.querySelector("#productGrid");
+
+  // select ONLY product columns
+const items = Array.from(container.querySelectorAll(".product-item"));
+
+  items.sort((a, b) => {
+
+    const priceA = parseFloat(a.querySelector(".product-card").dataset.price);
+    const priceB = parseFloat(b.querySelector(".product-card").dataset.price);
+
+    if (this.value === "low") return priceA - priceB;
+    if (this.value === "high") return priceB - priceA;
+
+    return 0;
+  });
+
+  items.forEach(item => container.appendChild(item));
+
+});
+// UPDATE CART COUNT
+
+
+// ADD TO CART
+
+updateCartCount();
+
+function updateCartCount(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+cart.forEach(item=>{
+total += item.qty;
+});
+
+document.getElementById("cartCount").innerText = total;
+
+}
+
+updateCartCount();
+function addToCart(name, price, image){
+
+cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let existing = cart.find(item => item.name === name);
+
+if(existing){
+existing.qty += 1;
+}else{
+cart.push({
+id: Date.now().toString(),
+name: name,
+price: price,
+image: image,
+qty: 1
+});
+}
+
+localStorage.setItem("cart", JSON.stringify(cart));
+
+updateCartUI();
+updateCartCount();
+
+alert("Product added to cart 🛒");
+
+}
+updateCartCount();
+
+/* PAGINATION */
+
+let currentPage = 1;
+let itemsPerPage = 6;
+
+function showPage(page) {
+
+const products = document.querySelectorAll("#productGrid .product-item");
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  currentPage = page;
+
+  const start = (page - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+
+  products.forEach((product, index) => {
+    if (index >= start && index < end) {
+  product.style.display = "";
+    } else {
+      product.style.display = "none";
+    }
+  });
+
+  createPagination(totalPages);
+}
+
+function createPagination(totalPages) {
+
+  const pagination = document.getElementById("pagination");
+  pagination.innerHTML = "";
+
+  let prevBtn = document.createElement("button");
+  prevBtn.innerText = "Prev";
+  prevBtn.className = "btn btn-outline-primary btn-sm m-1";
+  prevBtn.onclick = () => showPage(currentPage - 1);
+  pagination.appendChild(prevBtn);
+
+  for (let i = 1; i <= totalPages; i++) {
+
+    let pageBtn = document.createElement("button");
+    pageBtn.innerText = i;
+    pageBtn.className = "btn btn-sm m-1 " + (i === currentPage ? "btn-primary" : "btn-outline-primary");
+
+    pageBtn.onclick = () => showPage(i);
+
+    pagination.appendChild(pageBtn);
+  }
+
+  let nextBtn = document.createElement("button");
+  nextBtn.innerText = "Next";
+  nextBtn.className = "btn btn-outline-primary btn-sm m-1";
+  nextBtn.onclick = () => showPage(currentPage + 1);
+
+  pagination.appendChild(nextBtn);
+}
+
+showPage(1);
+</script>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

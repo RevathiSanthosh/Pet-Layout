@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetPalozza</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link href="Checkout.css" rel="stylesheet">
+<link href="Home.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== TOP NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg top-navbar">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">🐾 PetPalozza</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="topMenu">
+
+<!-- Search -->
+<form class="d-flex mx-auto" onsubmit="return false;">
+<input id="searchInput" class="form-control search-box" type="search" placeholder="Search for products">
+</form>
+
+<!-- Right Side Menu -->
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="Home.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="About.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Login.html"><i class="bi bi-person"></i> Log In</a>
+</li>
+
+<li class="nav-item  position-relative">
+<a href="cart.html" class="btn btn-warning">
+Cart 🛒 <span id="cartCount">0</span>
+</a>
+<ul class="dropdown-menu dropdown-menu-end p-3" id="cartItems">
+<li class="text-center text-muted">Cart is empty</li>
+</ul>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== CATEGORY NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg category-navbar">
+<div class="container">
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#categoryMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse justify-content-center" id="categoryMenu">
+<ul class="navbar-nav">
+
+<li class="nav-item">
+<a class="nav-link" href="Dog.html">Dog</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Cat.html">Cat</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="SmallPets.html">Small pets</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="PetService.html">Pet Service</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Brand</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Breed</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="ConsultVet.html">Consult a Vet</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-------------------------------------------------------------------------------------->
+<div class="container py-3">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+      <li class="breadcrumb-item active"><a href="Login.html"></a>Checkout</li>
+    </ol>
+  </nav>
+<!--------------------------------------------------------------------------------------------->
+<div class="container py-4">
+
+  <h5 class="text-center fw-bold mb-4">Checkout</h5>
+
+  <div class="row g-4">
+
+    <!-- LEFT SIDE FORM -->
+    <div class="col-lg-7">
+
+      <!-- Contact -->
+      <h6 class="fw-bold mb-2">Contact</h6>
+      <input type="email" class="form-control mb-2" placeholder="Email (for order updates)">
+
+      <div class="form-check mb-4">
+        <input class="form-check-input" type="checkbox">
+        <label class="form-check-label small">
+          Send me order updates, news and offers on Email and WhatsApp
+        </label>
+      </div>
+
+      <!-- Delivery -->
+      <h6 class="fw-bold mb-2">Delivery</h6>
+
+      <input type="text" class="form-control mb-2" placeholder="Country/Region">
+
+      <div class="row g-2 mb-2">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+
+      <input type="text" class="form-control mb-2" placeholder="Address">
+      <input type="text" class="form-control mb-2" placeholder="Apartment, suite (Optional)">
+
+      <div class="row g-2 mb-2">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="City">
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="State">
+        </div>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Pincode">
+        </div>
+      </div>
+
+      <input type="text" class="form-control mb-2" placeholder="Phone">
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" style="border: 1px solid black;">
+        <label class="form-check-label small">
+          Save this information for next time
+        </label>
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE ORDER SUMMARY -->
+    <div class="col-lg-5">
+
+      <div class="order-summary">
+
+        <h6 class="fw-bold mb-3">Order summary</h6>
+        <div id="orderItems"></div>
+               <!-- Discount -->
+        <div class="d-flex gap-2 mb-3">
+        <input type="text" id="discountCode" class="form-control" placeholder="Discount code or gift card">
+        <button class="btn btn-primary" onclick="applyDiscount()">Apply</button>
+        </div>
+
+        <!-- Totals -->
+            <div class="d-flex justify-content-between small mb-2">
+            <span>Sub total</span><span id="subtotal">₹0</span>
+            </div>
+
+          <div class="d-flex justify-content-between small mb-2">
+          <span>Shipping</span>
+          <span id="shipping">₹99</span>
+          </div>
+
+          <div class="d-flex justify-content-between small mb-2">
+          <span>Discount</span>
+          <span id="discount">₹0</span>
+          </div>
+
+          <hr>
+
+            <div class="d-flex justify-content-between fw-bold">
+            <span>Total</span><span id="total">₹0</span>
+            </div>
+        <small class="text-muted">
+          Includes ₹251.62 CGST, ₹251.62 SGST
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+<!------------------------------------------>
+<div class="container py-4" >
+  <h6 class="fw-bold mb-3">Choose your payment method</h6>
+
+  <!-- Secure Payment -->
+  <label class="payment-box d-flex align-items-center justify-content-between mb-3" style="border: 1px solid black;">
+    
+    <div class="d-flex align-items-center gap-2">
+      <input type="radio" name="payment" class="form-check-input">
+      <span class="small">Secure transaction(UPI, Cards, Wallets, Net banking)</span>
+    </div>
+
+    <div class="card-icons">
+      <img src="https://img.icons8.com/color/36/google-pay.png">
+      <img src="https://img.icons8.com/color/36/paytm.png">
+      <img src="https://img.icons8.com/color/36/mastercard.png">
+      <img src="https://img.icons8.com/color/36/visa.png">
+    </div>
+
+  </label>
+  <!-- COD -->
+  <label class="payment-box d-flex align-items-center gap-2 mb-4" style="border: 1px solid black;">
+    <input type="radio" name="payment" class="form-check-input">
+    <span class="small">Cash on Delivery</span>
+  </label>
+  <!-- Button -->
+  <button class="btn btn-primary w-100 order-btn" onclick="goToOrder()">Order Now</button>
+</div>
+<!--------------------------------Footer------------------------------>
+<footer class="footer-section text-white pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo + About -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="fw-bold">PetPalooza</h4>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Categories</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Dog</a></li>
+          <li><a href="#">Cat</a></li>
+          <li><a href="#">Fish</a></li>
+          <li><a href="#">Rats</a></li>
+          <li><a href="#">Rabbits</a></li>
+          <li><a href="#">Hamsters</a></li>
+          <li><a href="#">Guinea pigs</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold">Support</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Refund & returns policy</a></li>
+          <li><a href="#">Shipping policy</a></li>
+          <li><a href="#">Terms & conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + Contact -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Follow</h5>
+        <div class="social-icons mb-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <h6 class="fw-bold">Get in Touch</h6>
+        <p class="small mb-1">Call: +91-1234567890</p>
+        <p class="small">Email: support@petpalooza.com</p>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="col-lg-2 col-md-12 mb-4">
+        <h5 class="fw-bold">For Subscribe,</h5>
+        <form id="subscribeForm">
+          <input type="email" class="form-control mb-2" placeholder="Email" required>
+          <button class="btn btn-light w-100" type="submit">Subscribe Now</button>
+        </form>
+        <div id="msg" class="small mt-2"></div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!------------------------------------------------------------------------------>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let shipping = 99;
+let discount = 0;
+
+
+function loadCheckout(){
+
+let orderContainer = document.getElementById("orderItems");
+
+orderContainer.innerHTML = "";
+
+let subtotal = 0;
+
+cart.forEach(item => {
+
+let qty = item.quantity || 1;
+let itemTotal = item.price * qty;
+
+subtotal += itemTotal;
+
+orderContainer.innerHTML += `
+<div class="d-flex align-items-center mb-3">
+
+<img src="${item.image}" width="60" class="rounded me-2">
+
+<div class="flex-grow-1">
+<div class="fw-semibold">${item.name}</div>
+<div class="text-muted small">Qty: ${qty}</div>
+</div>
+
+<div class="fw-semibold">₹${itemTotal}</div>
+
+</div>
+`;
+
+});
+
+/* UPDATE VALUES */
+
+document.getElementById("subtotal").innerText = "₹" + subtotal;
+document.getElementById("shipping").innerText = "₹" + shipping;
+document.getElementById("discount").innerText = "₹" + discount;
+
+/* CALCULATE TOTAL */
+
+let total = subtotal + shipping - discount;
+
+document.getElementById("total").innerText = "₹" + total;
+
+
+
+}
+
+loadCheckout();
+
+function applyDiscount(){
+
+let code = document.getElementById("discountCode").value.toUpperCase();
+
+let subtotal = 0;
+
+cart.forEach(item=>{
+subtotal += item.price * (item.quantity || 1);
+});
+
+discount = 0;
+
+if(code === "SAVE10"){
+discount = subtotal * 0.10;
+alert("10% Discount Applied");
+}
+else if(code === "PET20"){
+discount = subtotal * 0.20;
+alert("20% Discount Applied");
+}
+else if(code === "FREESHIP"){
+shipping = 0;
+alert("Free Shipping Applied");
+}
+else{
+alert("Invalid Coupon");
+return;
+}
+
+let total = subtotal + shipping - discount;
+
+document.getElementById("discount").innerText = "₹" + discount;
+document.getElementById("total").innerText = "₹" + total;
+
+}
+function goToOrder(){
+
+let email = document.querySelector("input[type='email']").value.trim();
+
+if(email === ""){
+alert("Please enter email");
+return;
+}
+
+let payment = document.querySelector("input[name='payment']:checked");
+
+if(!payment){
+alert("Select payment method");
+return;
+}
+
+let order = {
+items: cart,
+date: new Date().toLocaleString()
+};
+
+localStorage.setItem("lastOrder", JSON.stringify(order));
+
+localStorage.removeItem("cart");
+
+alert("Order Placed Successfully!");
+
+window.location.href = "thanks.html";
+
+}
+
+
+
+</script>
+
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+</body>
+</html>

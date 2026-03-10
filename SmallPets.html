@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetPalozza</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link href="Home.css" rel="stylesheet">
+<link href="SmallPets.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== TOP NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg top-navbar">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">🐾 PetPalozza</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="topMenu">
+
+<!-- Search -->
+<form class="d-flex mx-auto" onsubmit="return false;">
+<input id="searchInput" class="form-control search-box" type="search" placeholder="Search for products">
+</form>
+
+<!-- Right Side Menu -->
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link active" href="Home.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="About.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Login.html"><i class="bi bi-person"></i> Log In</a>
+</li>
+
+<li class="nav-item  position-relative">
+<a href="cart.html" class="btn btn-warning">
+Cart 🛒 <span id="cartCount">0</span>
+</a>
+
+<ul class="dropdown-menu dropdown-menu-end p-3" id="cartItems">
+<li class="text-center text-muted">Cart is empty</li>
+</ul>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== CATEGORY NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg category-navbar">
+<div class="container">
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#categoryMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse justify-content-center" id="categoryMenu">
+<ul class="navbar-nav">
+
+<li class="nav-item dropdown">
+<a class="nav-link" href="Dog.html">Dog</a>
+</li>
+
+<li class="nav-item dropdown">
+<a class="nav-link" href="Cat.html">Cat</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="SmallPets.html">Small pets</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="PetService.html">Pet Service</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Brand</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Breed</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="ConsultVet.html">Consult a Vet</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== PRODUCTS ===== -->
+<div class="container mt-5">
+<div class="row" id="productContainer"></div>
+<div id="noResult" class="text-center text-danger mt-4" style="display:none;">
+No product found
+</div>
+</div>
+<!-------------------------------------------------------------------------------------->
+<div class="container py-3">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+      <li class="breadcrumb-item active"><a href="SmallPets.html"></a>Small Pets</li>
+    </ol>
+  </nav>
+
+  <!-- Hero Section -->
+<!----------------------------------------------------------------------------->
+<div class="container-fluid py-3">
+
+  <!-- Top Bar -->
+<div class="d-flex align-items-center mb-3">
+
+<button class="btn btn-outline-secondary btn-sm">☰ Filters</button>
+
+<h6 class="mb-0 fw-semibold ms-3">Small animals</h6>
+
+<select id="sortSelect" class="form-select form-select-sm ms-auto" style="width:180px;">
+<option value="">Sort by</option>
+<option value="low">Price low to high</option>
+<option value="high">Price high to low</option>
+</select>
+
+</div>
+
+  <div class="row">
+
+    <!-- Sidebar -->
+    <div class="col-lg-2 d-none d-lg-block">
+
+      <div class="sidebar-card">
+        <img src="h1.png" class="img-fluid">
+        <h6>Hamsters</h6>
+        <small>Food and box</small>
+      </div>
+
+      <div class="sidebar-card">
+        <img src="r3.png" class="img-fluid">
+        <h6>Rabbits</h6>
+        <small>Foods and box</small>
+      </div>
+
+      <div class="sidebar-card">
+        <img src="dd.png" class="img-fluid">
+        <h6>Rat</h6>
+        <small>Rat food also available</small>
+      </div>
+
+      <div class="sidebar-card">
+        <img src="fi.png" class="img-fluid">
+        <h6>Fish</h6>
+        <small>All types of fish food</small>
+      </div>
+
+      <div class="sidebar-card">
+        <img src="g3.png" class="img-fluid">
+        <h6>Guinea pigs</h6>
+        <small>Guinea pig food</small>
+      </div>
+
+    </div>
+
+    <!-- Product Grid -->
+    <div class="col-lg-10">
+
+      <div class="row g-4">
+
+        <!-- Product Card -->
+        <div class="col-lg-4 col-md-6">
+         <div class="product-card" data-price="125">
+            <img src="k0.png" class="img-fluid product-img">
+
+            <p class="product-title">Vitapol Economic Food For Rabbits</p>
+
+            <div class="rating">⭐⭐⭐⭐☆</div>
+
+            <div class="price">₹125</div>
+
+            <select class="form-select form-select-sm mb-2">
+              <option>1kg</option>
+              <option>2kg</option>
+            </select>
+          <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Vitapol Economic Food For Rabbits',125,'k0.png')">
+          Add to Cart
+          </button>
+            
+          </div>
+        </div>
+
+        <!-- Duplicate cards -->
+        <div class="col-lg-4 col-md-6">
+   <div class="product-card" data-price="38">
+            <img src="k2.png" class="img-fluid product-img">
+            <p class="product-title">Me-O Delite Cat Food Tuna With Gravy</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹38</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>80gm</option>
+            </select>
+                      <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Me-O Delite Cat Food Tuna With Gravy',38,'k2.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card" data-price="260">
+            <img src="k3.png" class="img-fluid product-img">
+            <p class="product-title">Trixie Water Bottle For Small Animals</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹260</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>250ml</option>
+            </select>
+           <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Trixie Water Bottle For Small Animals',260,'k3.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Product Card -->
+        <div class="col-lg-4 col-md-6">
+      <div class="product-card" data-price="125">
+            <img src="k4.png" class="img-fluid product-img">
+
+            <p class="product-title">Vitapol Economic Food For Rabbits</p>
+
+            <div class="rating">⭐⭐⭐⭐☆</div>
+
+            <div class="price">₹125</div>
+
+            <select class="form-select form-select-sm mb-2">
+              <option>1kg</option>
+              <option>2kg</option>
+            </select>
+
+            <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Vitapol Economic Food For Rabbits',125,'k4.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+        <!-- Duplicate cards -->
+        <div class="col-lg-4 col-md-6">
+        <div class="product-card" data-price="38">
+            <img src="k5.png" class="img-fluid product-img">
+            <p class="product-title">Me-O Delite Cat Food Tuna With Gravy</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹38</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>80gm</option>
+            </select>
+          
+            <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Me-O Delite Cat Food Tuna With Gravy',38,'k5.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+         <div class="product-card" data-price="260">
+            <img src="k6.png" class="img-fluid product-img">
+            <p class="product-title">Trixie Water Bottle For Small Animals</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹260</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>250ml</option>
+            </select>
+             <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Trixie Water Bottle For Small Animals',260,'k6.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="row g-4">
+
+        <!-- Product Card -->
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card" data-price="125">
+            <img src="k7.png" class="img-fluid product-img">
+
+            <p class="product-title">Vitapol Economic Food For Rabbits</p>
+
+            <div class="rating">⭐⭐⭐⭐☆</div>
+
+            <div class="price">₹125</div>
+
+            <select class="form-select form-select-sm mb-2">
+              <option>1kg</option>
+              <option>2kg</option>
+            </select>
+
+         <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Vitapol Economic Food For Rabbits',125,'k7.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+        <!-- Duplicate cards -->
+        <div class="col-lg-4 col-md-6">
+          <div class="product-card" data-price="38">
+            <img src="k8.png" class="img-fluid product-img">
+            <p class="product-title">Me-O Delite Cat Food Tuna With Gravy</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹38</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>80gm</option>
+            </select>
+           <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Me-O Delite Cat Food Tuna With Gravy',38,'k8.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+       <div class="product-card" data-price="260">
+            <img src="k9.png" class="img-fluid product-img">
+            <p class="product-title">Trixie Water Bottle For Small Animals</p>
+            <div class="rating">⭐⭐⭐⭐☆</div>
+            <div class="price">₹260</div>
+            <select class="form-select form-select-sm mb-2">
+              <option>250ml</option>
+            </select>
+            <button class="btn btn-primary w-100 btn-sm"
+          onclick="addToCart('Trixie Water Bottle For Small Animals',260,'k9.png')">
+          Add to Cart
+          </button>
+          </div>
+        </div>
+
+      </div>
+      <!-- Pagination -->
+      <div class="d-flex justify-content-end mt-4">
+        <nav>
+     <ul class="pagination pagination-sm" id="pagination">
+<li class="page-item active">
+<a class="page-link" href="#" onclick="showPage(1)">1</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#" onclick="showPage(2)">2</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#" onclick="showPage(3)">3</a>
+</li>
+</ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!--------------------------------Footer------------------------------>
+<footer class="footer-section text-white pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo + About -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="fw-bold">PetPalooza</h4>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Categories</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Dog</a></li>
+          <li><a href="#">Cat</a></li>
+          <li><a href="#">Fish</a></li>
+          <li><a href="#">Rats</a></li>
+          <li><a href="#">Rabbits</a></li>
+          <li><a href="#">Hamsters</a></li>
+          <li><a href="#">Guinea pigs</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold">Support</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Refund & returns policy</a></li>
+          <li><a href="#">Shipping policy</a></li>
+          <li><a href="#">Terms & conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + Contact -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Follow</h5>
+        <div class="social-icons mb-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <h6 class="fw-bold">Get in Touch</h6>
+        <p class="small mb-1">Call: +91-1234567890</p>
+        <p class="small">Email: support@petpalooza.com</p>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="col-lg-2 col-md-12 mb-4">
+        <h5 class="fw-bold">For Subscribe,</h5>
+        <form id="subscribeForm">
+          <input type="email" class="form-control mb-2" placeholder="Email" required>
+          <button class="btn btn-light w-100" type="submit">Subscribe Now</button>
+        </form>
+        <div id="msg" class="small mt-2"></div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!------------------------------------------------------------------------------>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script>
+document.getElementById("sortSelect").addEventListener("change", function () {
+
+const container = document.querySelector(".col-lg-10");
+let products = Array.from(container.querySelectorAll(".col-lg-4"));
+
+products.sort((a, b) => {
+
+let priceA = parseFloat(a.querySelector(".product-card").dataset.price);
+let priceB = parseFloat(b.querySelector(".product-card").dataset.price);
+
+if (this.value === "low") return priceA - priceB;
+if (this.value === "high") return priceB - priceA;
+
+return 0;
+
+});
+
+products.forEach(p => container.querySelector(".row").appendChild(p));
+
+});
+document.addEventListener("DOMContentLoaded", function(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let total = 0;
+
+cart.forEach(item=>{
+total += item.qty;
+});
+
+document.getElementById("cartCount").innerText = total;
+
+});
+function updateCartCount(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let total = 0;
+
+cart.forEach(item=>{
+total += item.qty;
+});
+
+document.getElementById("cartCount").innerText = total;
+
+}
+const products = document.querySelectorAll(".col-lg-4");
+const perPage = 6;
+
+function showPage(page){
+
+let start = (page - 1) * perPage;
+let end = start + perPage;
+
+products.forEach((product,index)=>{
+
+if(index >= start && index < end){
+product.style.display = "block";
+}else{
+product.style.display = "none";
+}
+
+});
+
+updatePagination(page);
+
+}
+
+function updatePagination(activePage){
+
+let pages = document.querySelectorAll("#pagination .page-item");
+
+pages.forEach((p,i)=>{
+
+if(i === activePage-1){
+p.classList.add("active");
+}else{
+p.classList.remove("active");
+}
+
+});
+
+}
+
+showPage(1);
+</script>
+</body>
+</html>

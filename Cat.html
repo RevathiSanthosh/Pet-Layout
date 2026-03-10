@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetPalozza</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<link href="home.css" rel="stylesheet">
+<link href="Cat.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ===== TOP NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg top-navbar">
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="#">🐾 PetPalozza</a>
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#topMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="topMenu">
+
+<!-- Search -->
+<form class="d-flex mx-auto" onsubmit="return false;">
+<input id="searchInput" class="form-control search-box" type="search" placeholder="Search for products">
+</form>
+
+<!-- Right Side Menu -->
+<ul class="navbar-nav ms-auto align-items-lg-center">
+
+<li class="nav-item">
+<a class="nav-link" href="Home.html">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="About.html">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Contact.html">Contact</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="Login.html"><i class="bi bi-person"></i> Log In</a>
+</li>
+
+<li class="nav-item position-relative">
+<a href="cart.html" class="btn btn-warning">
+Cart 🛒 <span id="cartCount">0</span>
+</a>
+
+<ul class="dropdown-menu dropdown-menu-end p-3" id="cartItems">
+<li class="text-center text-muted">Cart is empty</li>
+</ul>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== CATEGORY NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg category-navbar">
+<div class="container">
+
+<button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#categoryMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse justify-content-center" id="categoryMenu">
+<ul class="navbar-nav">
+
+<li class="nav-item">
+<a class="nav-link" href="Dog.html">Dog</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="Cat.html">Cat</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="SmallPets.html">Small pets</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="PetService.html">Pet Service</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Brand</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="#">Shop by Breed</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="ConsultVet.html">Consult a Vet</a>
+</li>
+
+</ul>
+</div>
+</div>
+</nav>
+
+<!-- ===== PRODUCTS ===== -->
+
+<!-------------------------------------------------------------------------------------->
+<div class="container py-3">
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb small mb-2">
+      <li class="breadcrumb-item"><a href="Home.html">Home</a></li>
+     <li class="breadcrumb-item active">Cat</li>
+    </ol>
+  </nav>
+  <!--------------------------------Header--------------------------------->
+<div class="container-fluid my-3">
+  <div class="row">
+
+    <!-- 🔹 LEFT SIDEBAR -->
+    <aside class="col-lg-3 mb-4">
+      <hr>
+<h6 class="fw-bold">Filter</h6>
+
+<!-- 💰 Price Filter -->
+<label class="small">Max Price: $<span id="priceValue">50</span></label>
+<input type="range" id="priceFilter" class="form-range" min="1" max="50" value="50">
+
+<!-- ⭐ Rating Filter -->
+<label class="small mt-2">Minimum Rating</label>
+<select id="ratingFilter" class="form-select form-select-sm">
+  <option value="0">All</option>
+  <option value="3">3 ★ & above</option>
+  <option value="4">4 ★ & above</option>
+  <option value="5">5 ★ only</option>
+</select>
+
+<!-- 🔄 Reset -->
+<button id="clearFilter" class="btn btn-sm btn-outline-secondary mt-2 w-100">
+Clear Filter
+</button>
+      <h6 class="fw-bold">Top Deals</h6>
+      <div class="sidebar-card mb-3">
+        <img src="1.png" class="img-fluid rounded">
+        <h6>Stress-Free Summer<br><span>Keep your cat calm along all season</span></h6>
+      </div>
+
+      <h6 class="fw-bold mt-4">Toys</h6>
+      <div class="sidebar-card mb-3">
+        <img src="u1.png" class="img-fluid rounded">
+        <small>All types of toys are available</small>
+      </div>
+
+      <h6 class="fw-bold mt-4">Dog & Cat</h6>
+      <div class="sidebar-card mb-3">
+        <img src="c2.png" class="img-fluid rounded">
+        <small>Taking them on a road trip, visiting dog-friendly beaches.</small>
+      </div>
+
+      <h6 class="fw-bold mt-4">Training</h6>
+      <div class="sidebar-card mb-3">
+        <img src="11.png" class="img-fluid rounded">
+        <small>All types of training are available</small>
+      </div>
+
+      <h6 class="fw-bold mt-4">Natural Food</h6>
+      <div class="sidebar-card">
+        <img src="food.png" class="img-fluid rounded">
+        <small>Make your dog more healthy</small>
+      </div>
+    </aside>
+
+    <!-- 🔹 RIGHT CONTENT -->
+    <main class="col-lg-9">
+
+      <!-- Filter + Sort -->
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <button class="btn btn-outline-dark btn-sm">☰ Filters</button>
+        <div class="d-flex align-items-center gap-2">
+          <label class="small mb-0">Sort by</label>
+         <select id="sortSelect" class="form-select form-select-sm w-auto">
+            <option>Featured</option>
+            <option>Price Low → High</option>
+            <option>Price High → Low</option>
+          </select>
+        </div>
+      </div>
+
+      <h6 class="fw-bold mb-3">Cat</h6>
+
+    
+   <div class="row g-4" id="productGrid">
+
+        <!-- PRODUCT CARD -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card text-center p-3 h-100" data-price="5" data-rating="4">
+            <img src="p1.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Whiskas Chicken In Gravy meal</p>
+            <div class="rating text-warning">★★★★☆</div>
+            <p class="fw-bold">$5</p>
+             <button class="btn btn-primary" onclick="addToCart(
+      'Whiskas Chicken In Gravy meal',
+      5,
+      'p1.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <!-- Repeat -->
+        <div class="col-md-6 col-lg-4">
+         <div class="product-card text-center p-3 h-100" data-price="5" data-rating="4">
+            <img src="p2.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Sheba Maguro & Bream wet cat</p>
+            <div class="rating text-warning">★★★★☆</div>
+            <p class="fw-bold">$5</p>
+            <button class="btn btn-primary" onclick="addToCart(
+      'Sheba Maguro & Bream wet cat',
+      5,
+      'p2.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card text-center p-3 h-100" data-price="2" data-rating="5">
+            <img src="p3.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Catit Pixi Fountain,Mini Green</p>
+            <div class="rating text-warning">★★★★★</div>
+            <p class="fw-bold">$2</p>
+                 <button class="btn btn-primary" onclick="addToCart(
+      'Catit Pixi Fountain,Mini Green',
+      2,
+      'p3.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <!-- Add more cards same pattern -->
+
+  
+       <!-- 🔹 PRODUCT GRID -->
+           <!-- PRODUCT CARD -->
+        <div class="col-md-6 col-lg-4">
+         <div class="product-card text-center p-3 h-100" data-price="1" data-rating="4">
+            <img src="p4.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Catit Groovi Fish contain</p>
+            <div class="rating text-warning">★★★★☆</div>
+            <p class="fw-bold">$1</p>
+          <button class="btn btn-primary" onclick="addToCart(
+      'Catit Groovi Fish contain',
+      1,
+      'p4.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <!-- Repeat -->
+        <div class="col-md-6 col-lg-4">
+         <div class="product-card text-center p-3 h-100" data-price="7" data-rating="4">
+            <img src="p5.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Meo Delight Cat Food</p>
+            <div class="rating text-warning">★★★★☆</div>
+            <p class="fw-bold">$7</p>
+                      <button class="btn btn-primary" onclick="addToCart(
+      'Meo Delight Cat Food',
+      7,
+      'p5.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+       <div class="product-card text-center p-3 h-100" data-price="11" data-rating="5">
+            <img src="p6.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Royal Canin kitten Gravy wet</p>
+            <div class="rating text-warning">★★★★★</div>
+            <p class="fw-bold">$11</p>
+           <button class="btn btn-primary" onclick="addToCart(
+      'Royal Canin kitten Gravy wet',
+      11,
+      'p6.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <!-- Add more cards same pattern -->
+
+  
+       <!-- 🔹 PRODUCT GRID -->
+        <!-- PRODUCT CARD -->
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card text-center p-3 h-100" data-price="24" data-rating="4">
+            <img src="p7.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Catit Freeze-Dried Cat Treats Liver & Chicken</p>
+            <div class="rating text-warning">★★★★☆</div>
+             <p class="fw-bold">$24</p>
+           <button class="btn btn-primary" onclick="addToCart(
+      'Catit Freeze-Dried Cat Treats Liver & Chicken',
+      24,
+      'p7.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <!-- Repeat -->
+        <div class="col-md-6 col-lg-4">
+         <div class="product-card text-center p-3 h-100" data-price="30" data-rating="4">
+            <img src="p8.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Nutrience Grain Free SubZero Freeze Dried</p>
+            <div class="rating text-warning">★★★★☆</div>
+            <p class="fw-bold">$30</p>
+            <button class="btn btn-primary" onclick="addToCart(
+      'Nutrience Grain Free SubZero Freeze Dried',
+      30,
+      'p8.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+        <div class="product-card text-center p-3 h-100" data-price="28" data-rating="5">
+            <img src="p9.png" class="img-fluid product-img mb-2">
+            <p class="product-title">Mega Cat Combo Treat, Play</p>
+            <div class="rating text-warning">★★★★★</div>
+            <p class="fw-bold">$28</p>
+             <button class="btn btn-primary" onclick="addToCart(
+      'Mega Cat Combo Treat, Play',
+      28,
+      'p9.png')">
+
+      Add To Cart
+    </button>
+          </div>
+        </div>
+</div>
+        <!-- Add more cards same pattern -->
+
+      <!-- 🔹 PAGINATION -->
+      <div class="d-flex justify-content-end mt-4">
+        <nav>
+          <ul class="pagination pagination-sm">
+            <li class="page-item active"><a class="page-link">1</a></li>
+            <li class="page-item"><a class="page-link">2</a></li>
+            <li class="page-item"><a class="page-link">3</a></li>
+            <li class="page-item"><a class="page-link">…</a></li>
+            <li class="page-item"><a class="page-link">25</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    </main>
+
+  </div>
+</div>
+  <!--------------------------------Footer------------------------------>
+<footer class="footer-section text-white pt-5 pb-4">
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo + About -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h4 class="fw-bold">PetPalooza</h4>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Categories</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Dog</a></li>
+          <li><a href="#">Cat</a></li>
+          <li><a href="#">Fish</a></li>
+          <li><a href="#">Rats</a></li>
+          <li><a href="#">Rabbits</a></li>
+          <li><a href="#">Hamsters</a></li>
+          <li><a href="#">Guinea pigs</a></li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h5 class="fw-bold">Support</h5>
+        <ul class="list-unstyled footer-links">
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Refund & returns policy</a></li>
+          <li><a href="#">Shipping policy</a></li>
+          <li><a href="#">Terms & conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social + Contact -->
+      <div class="col-lg-2 col-md-6 mb-4">
+        <h5 class="fw-bold">Follow</h5>
+        <div class="social-icons mb-3">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <h6 class="fw-bold">Get in Touch</h6>
+        <p class="small mb-1">Call: +91-1234567890</p>
+        <p class="small">Email: support@petpalooza.com</p>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="col-lg-2 col-md-12 mb-4">
+        <h5 class="fw-bold">For Subscribe,</h5>
+        <form id="subscribeForm">
+          <input type="email" class="form-control mb-2" placeholder="Email" required>
+          <button class="btn btn-light w-100" type="submit">Subscribe Now</button>
+        </form>
+        <div id="msg" class="small mt-2"></div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<!------------------------------------------------------------------------------>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="products.js"></script>
+<script src="cart.js"></script>
+<script>
+
+/* PRICE SLIDER */
+
+let priceSlider = document.getElementById("priceFilter");
+let priceValue = document.getElementById("priceValue");
+
+priceSlider.oninput = function(){
+priceValue.innerText = this.value;
+filterProducts();
+};
+
+
+/* RATING FILTER */
+
+document.getElementById("ratingFilter").addEventListener("change", filterProducts);
+
+
+/* FILTER FUNCTION */
+
+function filterProducts(){
+
+let maxPrice = parseFloat(priceSlider.value);
+let minRating = parseFloat(document.getElementById("ratingFilter").value);
+
+let products = document.querySelectorAll(".product-card");
+
+products.forEach(product => {
+
+let price = parseFloat(product.dataset.price);
+let rating = parseFloat(product.dataset.rating);
+
+if(price <= maxPrice && rating >= minRating){
+product.parentElement.style.display = "";
+}else{
+product.parentElement.style.display = "none";
+}
+
+});
+
+}
+
+
+/* CLEAR FILTER */
+
+document.getElementById("clearFilter").onclick = function(){
+
+priceSlider.value = 50;
+priceValue.innerText = 50;
+
+document.getElementById("ratingFilter").value = 0;
+
+filterProducts();
+
+};
+
+
+/* SORT PRODUCTS */
+
+document.getElementById("sortSelect").addEventListener("change", function(){
+
+let type = this.value;
+
+
+let container = document.getElementById("productGrid");
+let items = Array.from(container.children);
+
+items.sort((a,b)=>{
+
+let priceA = parseFloat(a.querySelector(".product-card").dataset.price);
+let priceB = parseFloat(b.querySelector(".product-card").dataset.price);
+
+if(type === "Price Low → High") return priceA - priceB;
+if(type === "Price High → Low") return priceB - priceA;
+
+return 0;
+
+});
+
+items.forEach(i => container.appendChild(i));
+
+});
+/* SEARCH PRODUCTS */
+
+document.getElementById("searchInput").addEventListener("keyup", function(){
+
+let value = this.value.toLowerCase();
+let products = document.querySelectorAll(".product-card");
+
+products.forEach(product => {
+
+let name = product.querySelector(".product-title").innerText.toLowerCase();
+
+if(name.includes(value)){
+product.parentElement.style.display = "";
+}else{
+product.parentElement.style.display = "none";
+}
+
+});
+
+});
+</script>
+</body>
+</html>
